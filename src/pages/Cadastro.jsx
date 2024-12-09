@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import styled from "styled-components";
-import Logo from "../img/Logo.png";
+import Logo from "../img/logo.png";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import UserContext from "../contexts/UserContext";
