@@ -27,21 +27,22 @@ export default function CardHabitos({ setHabits, habits, refreshHabits }) {
       alert("Por favor, insira um nome para o hábito e selecione ao menos um dia.");
       return;
     }
-    if(!token) {
+    if (!token) {
       alert("Token de autenticação não encontrado");
-      setLoading(false)
+      setLoading(false);
       return;
     }
-
+  
     const body = { name: habitName, days: selectedDays };
     const config = { headers: { Authorization: `Bearer ${token}` } };
-
+  
     setLoading(true);
-
+  
     axios
       .post("https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits", body, config)
-      .then(() => {
-        refreshHabits();
+      .then((response) => {
+        setHabits([...habits, response.data]);
+  
         setHabitName("");
         setSelectedDays([]);
       })
@@ -51,6 +52,7 @@ export default function CardHabitos({ setHabits, habits, refreshHabits }) {
       })
       .finally(() => setLoading(false));
   }
+  
 
   return (
     <CardContainer>
