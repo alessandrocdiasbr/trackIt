@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from "react";
-import Logo from "../img/Logo.png";
+import Logo from "../img/logo.png";
 import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
